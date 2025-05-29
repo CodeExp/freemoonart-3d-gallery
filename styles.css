@@ -158,6 +158,10 @@ body {
     z-index: 100;
 }
 
+#logo img {
+    height: 40px;
+}
+
 .moon {
     color: #e9c46a;
 }
