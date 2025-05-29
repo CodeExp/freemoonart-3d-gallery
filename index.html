@@ -744,8 +744,7 @@
         document.addEventListener('mousemove', (e) => {
             if (isDragging) {
                 const deltaMove = {
-                    x: e.clientX - previousMousePosition.x,
-                    y: e.clientY - previousMousePosition.y
+                    x: e.clientX - previousMousePosition.x
                 };
 
                 const rotationSpeed = 0.003;
@@ -762,8 +761,7 @@
             }
             
             previousMousePosition = {
-                x: e.clientX,
-                y: e.clientY
+                x: e.clientX
             };
         });
         
@@ -840,7 +838,6 @@
                 
                 // Position relative du toucher par rapport au centre
                 const touchX = touch.clientX - centerX;
-                const touchY = touch.clientY - centerY;
                 
                 // Calcul de la distance
                 const distance = Math.min(joystickRect.width / 2 - 20, Math.sqrt(touchX * touchX + touchY * touchY));
@@ -878,10 +875,9 @@
         const mouse = new THREE.Vector2();
 
         // Fonction commune pour gérer les clics/touchers sur les œuvres
-        const handleInteraction = (clientX, clientY) => {
+        const handleInteraction = (clientX) => {
             // Normaliser les coordonnées
             mouse.x = (clientX / window.innerWidth) * 2 - 1;
-//            mouse.y = -(clientY / window.innerHeight) * 2 + 1;
             
             // Ne pas traiter les clics sur les contrôles mobiles
             const mobileControls = document.getElementById('mobile-controls');
@@ -895,13 +891,10 @@
                 const infoBoxRect = infoBox.getBoundingClientRect();
                 
                 if (
-                    (clientX >= mobileControlsRect.left && clientX <= mobileControlsRect.right && 
-                     clientY >= mobileControlsRect.top && clientY <= mobileControlsRect.bottom) ||
-                    (clientX >= joystickRect.left && clientX <= joystickRect.right && 
-                     clientY >= joystickRect.top && clientY <= joystickRect.bottom) ||
+                    (clientX >= mobileControlsRect.left && clientX <= mobileControlsRect.right) ||
+                    (clientX >= joystickRect.left && clientX <= joystickRect.right) ||
                     (infoBox.style.display === 'block' && 
-                     clientX >= infoBoxRect.left && clientX <= infoBoxRect.right && 
-                     clientY >= infoBoxRect.top && clientY <= infoBoxRect.bottom)
+                     clientX >= infoBoxRect.left && clientX <= infoBoxRect.right)
                 ) {
                     return;
                 }
@@ -924,7 +917,7 @@
 
         // Gestionnaire de clics pour desktop
         window.addEventListener('click', (event) => {
-            handleInteraction(event.clientX, event.clientY);
+            handleInteraction(event.clientX);
         });
         
         // Gestionnaire de touchers pour mobile
@@ -932,7 +925,7 @@
             // Utiliser uniquement si aucun mouvement significatif n'a été détecté
             if (!joystickActive && event.changedTouches.length > 0) {
                 const touch = event.changedTouches[0];
-                handleInteraction(touch.clientX, touch.clientY);
+                handleInteraction(touch.clientX);
             }
         }, { passive: true });
 
