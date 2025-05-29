@@ -71,7 +71,7 @@ function createRoom() {
     }
 
     // Arbres spirituels
-    createSpiritualTree(15, 8, 0);
+    createSpiritualTree(20, 8, 0);
     createSpiritualTree(-10, 8, 15);
     createSpiritualTree(-18, 8, -10);
 
