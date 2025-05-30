@@ -556,11 +556,15 @@ document.addEventListener('mousemove', (e) => {
         camera.rotation.y -= deltaMove.x * rotationSpeed;
 
         // Rotation verticale (regarder en haut/bas) avec limite
+        /*
         const newVerticalRotation = camera.rotation.x - deltaMove.y * rotationSpeed;
+        */
         // Limiter la rotation verticale à environ +/- 85 degrés
+        /*
         if (newVerticalRotation < Math.PI / 2.1 && newVerticalRotation > -Math.PI / 2.1) {
             camera.rotation.x = newVerticalRotation;
         }
+        */
     }
 
     previousMousePosition = {
