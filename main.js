@@ -161,27 +161,45 @@ const artworks = [];
 const artworkInfo = [
     {
         title: "Esprit de la Forêt",
-        description: "Cette œuvre capture l'essence spirituelle des forêts africaines sacrées. Les teintes vertes et terreuses représentent la connexion entre le monde matériel et spirituel, tandis que les formes ondulantes évoquent les esprits qui habitent ces lieux ancestraux."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     },
     {
         title: "Danse Cosmique",
-        description: "Inspirée des rituels traditionnels africains, cette toile illustre la danse entre les forces célestes et terrestres. Les motifs circulaires symbolisent les cycles de la vie, tandis que les éclats dorés représentent la sagesse ancestrale transmise à travers les générations."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     },
     {
         title: "Vision Lunaire",
-        description: "Cette œuvre explore la signification de la lune dans les spiritualités africaines. Les tons bleus profonds et argentés captent l'énergie féminine et intuitive associée à l'astre nocturne, source d'inspiration et guide spirituel pour de nombreuses traditions."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     },
     {
         title: "Gardiens des Savoirs",
-        description: "Représentation des ancêtres veillant sur le savoir sacré. Les silhouettes stylisées sont entourées de symboles de protection et de sagesse, créant un pont entre le passé et le présent, entre le visible et l'invisible."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     },
     {
         title: "Rythme de l'Âme",
-        description: "Cette création vibrante capture l'énergie des tambours et des danses rituelles. Les touches de rouge et d'ocre évoquent la terre et le sang, sources de vie, tandis que les motifs répétitifs rappellent les battements du cœur et les rythmes traditionnels."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     },
     {
         title: "Équilibre Sacré",
-        description: "Cette œuvre explore l'harmonie entre les forces opposées et complémentaires qui structurent l'univers selon de nombreuses philosophies africaines. Le jeu entre ombre et lumière, formes géométriques et organiques, symbolise cette recherche d'équilibre."
+        description: "",
+        file: "/artworks/spirit_of_the_forest.jpg",
+        width: 5,
+        height: 4
     }
 ];
 
@@ -197,7 +215,7 @@ function createArtworks() {
 
     positions.forEach((pos, index) => {
         // Cadre
-        const frameGeometry = new THREE.BoxGeometry(5.2, 4.2, 0.2);
+        const frameGeometry = new THREE.BoxGeometry(artworkInfo[index].width + 0.2, artworkInfo[index].height + 0.2, 0.2);
         const frameMaterial = new THREE.MeshStandardMaterial({
             color: 0x3d2817,
             roughness: 0.9,
@@ -209,248 +227,16 @@ function createArtworks() {
         scene.add(frame);
 
         // Toile
-        const paintingGeometry = new THREE.PlaneGeometry(5, 4);
+        const paintingGeometry = new THREE.PlaneGeometry(artworkInfo[index].width, artworkInfo[index].height);
+        paintingGeometry.translate(0, 0, 0.11); // Positionner légèrement devant le cadre
 
-        // Créer une texture procédurale pour chaque œuvre
-        const canvas = document.createElement('canvas');
-        canvas.width = 512;
-        canvas.height = 400;
-        const ctx = canvas.getContext('2d');
-
-        // Fond de la toile
-        const bgColors = [
-            'rgb(45, 82, 65)', // vert forêt
-            'rgb(70, 40, 90)', // violet profond
-            'rgb(25, 25, 60)', // bleu nuit
-            'rgb(60, 30, 15)', // brun terre
-            'rgb(150, 50, 30)', // rouge terre
-            'rgb(35, 60, 70)'  // bleu-vert
-        ];
-
-        ctx.fillStyle = bgColors[index];
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Dessiner des motifs africains stylisés
-        const drawPatterns = (i) => {
-            switch (i) {
-                case 0: // Esprit de la Forêt - motifs organiques
-                    ctx.strokeStyle = 'rgba(200, 230, 180, 0.7)';
-                    for (let j = 0; j < 20; j++) {
-                        ctx.beginPath();
-                        ctx.lineWidth = 2 + Math.random() * 5;
-                        let x = Math.random() * canvas.width;
-                        let y = Math.random() * canvas.height;
-                        ctx.moveTo(x, y);
-                        for (let k = 0; k < 5; k++) {
-                            x += (Math.random() - 0.5) * 100;
-                            y += (Math.random() - 0.5) * 100;
-                            ctx.lineTo(x, y);
-                        }
-                        ctx.stroke();
-                    }
-                    break;
-                case 1: // Danse Cosmique - cercles et spirales
-                    for (let j = 0; j < 15; j++) {
-                        const size = 30 + Math.random() * 70;
-                        const x = Math.random() * canvas.width;
-                        const y = Math.random() * canvas.height;
-                        ctx.strokeStyle = `rgba(${200 + Math.random() * 55}, ${160 + Math.random() * 95}, ${100 + Math.random() * 50}, 0.7)`;
-                        ctx.lineWidth = 1 + Math.random() * 3;
-
-                        ctx.beginPath();
-                        ctx.arc(x, y, size, 0, Math.PI * 2);
-                        ctx.stroke();
-
-                        if (Math.random() > 0.5) {
-                            ctx.beginPath();
-                            ctx.arc(x, y, size * 0.7, 0, Math.PI * 2);
-                            ctx.stroke();
-                        }
-                    }
-                    break;
-                case 2: // Vision Lunaire
-                    // Grande lune
-                    ctx.fillStyle = 'rgba(220, 220, 240, 0.9)';
-                    ctx.beginPath();
-                    ctx.arc(canvas.width / 2, canvas.height / 2, 100, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    // Détails lunaires
-                    ctx.fillStyle = 'rgba(200, 200, 230, 0.6)';
-                    for (let j = 0; j < 10; j++) {
-                        ctx.beginPath();
-                        ctx.arc(
-                            canvas.width / 2 + (Math.random() - 0.5) * 150,
-                            canvas.height / 2 + (Math.random() - 0.5) * 150,
-                            5 + Math.random() * 20,
-                            0, Math.PI * 2
-                        );
-                        ctx.fill();
-                    }
-
-                    // Étoiles
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                    for (let j = 0; j < 100; j++) {
-                        ctx.beginPath();
-                        ctx.arc(
-                            Math.random() * canvas.width,
-                            Math.random() * canvas.height,
-                            Math.random() * 2,
-                            0, Math.PI * 2
-                        );
-                        ctx.fill();
-                    }
-                    break;
-                case 3: // Gardiens des Savoirs - silhouettes
-                    ctx.fillStyle = 'rgba(220, 180, 120, 0.8)';
-
-                    // Silhouettes stylisées
-                    for (let j = 0; j < 3; j++) {
-                        const centerX = 150 + j * 120;
-                        const centerY = canvas.height / 2;
-
-                        // Tête
-                        ctx.beginPath();
-                        ctx.arc(centerX, centerY - 60, 30, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        // Corps
-                        ctx.beginPath();
-                        ctx.moveTo(centerX, centerY - 30);
-                        ctx.lineTo(centerX - 40, centerY + 100);
-                        ctx.lineTo(centerX + 40, centerY + 100);
-                        ctx.closePath();
-                        ctx.fill();
-
-                        // Symboles autour
-                        ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
-                        ctx.lineWidth = 2;
-                        for (let k = 0; k < 5; k++) {
-                            const angle = (k / 5) * Math.PI * 2;
-                            const x = centerX + Math.cos(angle) * 70;
-                            const y = centerY + Math.sin(angle) * 70;
-
-                            ctx.beginPath();
-                            ctx.moveTo(x - 10, y);
-                            ctx.lineTo(x + 10, y);
-                            ctx.moveTo(x, y - 10);
-                            ctx.lineTo(x, y + 10);
-                            ctx.stroke();
-                        }
-                    }
-                    break;
-                case 4: // Rythme de l'Âme - motifs rythmiques
-                    // Fond texturé
-                    for (let j = 0; j < 20; j++) {
-                        ctx.strokeStyle = `rgba(${180 + Math.random() * 75}, ${60 + Math.random() * 40}, ${20 + Math.random() * 30}, 0.6)`;
-                        ctx.lineWidth = 10 + Math.random() * 20;
-
-                        ctx.beginPath();
-                        ctx.moveTo(0, j * canvas.height / 20);
-
-                        let x = 0;
-                        while (x < canvas.width) {
-                            x += 20 + Math.random() * 30;
-                            const y = (j * canvas.height / 20) + (Math.random() - 0.5) * 30;
-                            ctx.lineTo(x, y);
-                        }
-                        ctx.stroke();
-                    }
-
-                    // Cercles rythmiques
-                    for (let j = 0; j < 10; j++) {
-                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
-                        ctx.lineWidth = 2;
-
-                        const x = 100 + Math.random() * (canvas.width - 200);
-                        const y = 100 + Math.random() * (canvas.height - 200);
-                        const size = 20 + Math.random() * 40;
-
-                        ctx.beginPath();
-                        ctx.arc(x, y, size, 0, Math.PI * 2);
-                        ctx.stroke();
-
-                        if (Math.random() > 0.5) {
-                            ctx.beginPath();
-                            ctx.arc(x, y, size * 0.5, 0, Math.PI * 2);
-                            ctx.stroke();
-                        }
-                    }
-                    break;
-                case 5: // Équilibre Sacré - géométrie sacrée
-                    // Arrière-plan avec grille subtile
-                    ctx.strokeStyle = 'rgba(100, 150, 180, 0.3)';
-                    ctx.lineWidth = 1;
-
-                    for (let j = 0; j < 10; j++) {
-                        ctx.beginPath();
-                        ctx.moveTo(0, j * canvas.height / 10);
-                        ctx.lineTo(canvas.width, j * canvas.height / 10);
-                        ctx.stroke();
-
-                        ctx.beginPath();
-                        ctx.moveTo(j * canvas.width / 10, 0);
-                        ctx.lineTo(j * canvas.width / 10, canvas.height);
-                        ctx.stroke();
-                    }
-
-                    // Motifs géométriques
-                    ctx.strokeStyle = 'rgba(220, 200, 150, 0.8)';
-                    ctx.lineWidth = 2;
-
-                    // Grand cercle central
-                    ctx.beginPath();
-                    ctx.arc(canvas.width / 2, canvas.height / 2, 120, 0, Math.PI * 2);
-                    ctx.stroke();
-
-                    // Hexagone inscrit
-                    ctx.beginPath();
-                    for (let j = 0; j < 6; j++) {
-                        const angle = (j / 6) * Math.PI * 2;
-                        const x = canvas.width / 2 + Math.cos(angle) * 120;
-                        const y = canvas.height / 2 + Math.sin(angle) * 120;
-
-                        if (j === 0) {
-                            ctx.moveTo(x, y);
-                        } else {
-                            ctx.lineTo(x, y);
-                        }
-                    }
-                    ctx.closePath();
-                    ctx.stroke();
-
-                    // Triangle inscrit
-                    ctx.beginPath();
-                    for (let j = 0; j < 3; j++) {
-                        const angle = (j / 3) * Math.PI * 2;
-                        const x = canvas.width / 2 + Math.cos(angle) * 120;
-                        const y = canvas.height / 2 + Math.sin(angle) * 120;
-
-                        if (j === 0) {
-                            ctx.moveTo(x, y);
-                        } else {
-                            ctx.lineTo(x, y);
-                        }
-                    }
-                    ctx.closePath();
-                    ctx.stroke();
-
-                    // Point central
-                    ctx.fillStyle = 'rgba(230, 210, 160, 0.9)';
-                    ctx.beginPath();
-                    ctx.arc(canvas.width / 2, canvas.height / 2, 10, 0, Math.PI * 2);
-                    ctx.fill();
-                    break;
-            }
-        };
-
-        drawPatterns(index);
-
-        // Convertir le canvas en texture
-        const texture = new THREE.CanvasTexture(canvas);
+        // Charger la texture de l'œuvre d'art
+        const artworkTexture = new THREE.TextureLoader().load(artworkInfo[index].file, (texture) => {
+            texture.colorSpace = THREE.SRGBColorSpace;
+        });
 
         const paintingMaterial = new THREE.MeshStandardMaterial({
-            map: texture,
+            map: artworkTexture,
             roughness: 0.8,
             metalness: 0.2
         });
