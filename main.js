@@ -779,10 +779,12 @@ function animate() {
     if (joystickActive) {
         camera.rotation.y -= lookDeltaX;
 
+        /*
         const newVerticalRotation = camera.rotation.x - lookDeltaY;
         if (newVerticalRotation < Math.PI / 2.1 && newVerticalRotation > -Math.PI / 2.1) {
             camera.rotation.x = newVerticalRotation;
         }
+        */
     }
 
     // Appliquer la rotation de la caméra au vecteur de mouvement
