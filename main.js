@@ -160,44 +160,44 @@ function createSacredCircle(x, y, z, radius) {
 const artworks = [];
 const artworkInfo = [
     {
-        title: "Esprit de la Forêt",
+        title: "Contact Maternel",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/contact_maternel.jpg",
         width: 5,
         height: 4
     },
     {
-        title: "Danse Cosmique",
+        title: "Larmes Douces",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/larmes_douces.jpg",
         width: 5,
         height: 4
     },
     {
-        title: "Vision Lunaire",
+        title: "Chemin Calme",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/chemin_calme.jpg",
         width: 5,
         height: 4
     },
     {
-        title: "Gardiens des Savoirs",
+        title: "Célébration de la Vie",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/celebration_de_la_vie.jpg",
         width: 5,
         height: 4
     },
     {
-        title: "Rythme de l'Âme",
+        title: "L'Esprit Tribal",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/l_esprit_tribal.jpg",
         width: 5,
         height: 4
     },
     {
-        title: "Équilibre Sacré",
+        title: "Balade en Ville",
         description: "",
-        file: "/artworks/spirit_of_the_forest.jpg",
+        file: "/artworks/balade_en_ville.jpg",
         width: 5,
         height: 4
     }
