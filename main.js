@@ -162,42 +162,42 @@ const artworkInfo = [
     {
         title: "Contact Maternel",
         description: "Une ode tendre à l'amour inconditionnel entre une mère et son enfant. Cette œuvre touchante immortalise un instant précieux: une maman aux yeux clos berçant délicatement sa petite fille dans ses bras.Le visage serein de la mère exprime toute la plénitude de ce moment suspendu, tandis que l'enfant repose en toute confiance, apaisée par cette étreinte protectrice. Une scène universelle qui capture l'essence même de la tendresse maternelle.",
-        file: "/artworks/contact_maternel.jpg",
+        file: "./artworks/contact_maternel.jpg",
         width: 5,
         height: 4
     },
     {
         title: "Larmes Douces",
         description: "Une œuvre onirique où la douleur se transforme en beauté cristalline. Au cœur de cette création surréaliste, un œil géant pleure des larmes de cristal qui captent la lumière tel un prisme magique.Deux abeilles aux reflets dorés et noirs dansent autour de ce regard blessé, suspendues dans un ballet éthéré.Des feuilles vivantes encerclent la scène, leurs pétales vibrant d'une énergie mystérieuse, gorgés d'un pollen scintillant qui attire ces créatures ailées. Une métaphore poétique sur la transformation de la souffrance en beauté lumineuse.",
-        file: "/artworks/larmes_douces.jpg",
+        file: "./artworks/larmes_douces.jpg",
         width: 5,
         height: 4
     },
     {
         title: "Chemin Calme",
         description: "Une invitation à la contemplation sur les chemins apaisants de l'hiver. Cette œuvre poétique nous transporte le long d'une route hivernale silencieuse, bordée d'arbres aux branches nues qui dessinent des dentelles délicates contre le ciel.Les nuances roses et bleues du crépuscule enveloppent le paysage d'une lumière douce et mélancolique. Au loin, les fenêtres illuminées des maisons promettent chaleur et réconfort, créant un contraste saisissant avec la froideur de la saison. Une œuvre qui célèbre la beauté de la solitude hivernale et la promesse du foyer.",
-        file: "/artworks/chemin_calme.jpg",
+        file: "./artworks/chemin_calme.jpg",
         width: 5,
         height: 4
     },
     {
         title: "Célébration de la Vie",
         description: "Une explosion de joie pure capturée dans un élan spirituel vers le ciel. Cette œuvre vibrante d'énergie immortalise un moment de triomphe absolu : une silhouette aux bras levés vers l'infini, baignée dans une explosion de couleurs éclatantes.Le contraste saisissant entre la figure sombre et les jets de turquoise, rouge, jaune et blanc crée une symphonie visuelle puissante.La technique mixte rugueuse et texturée amplifie l'émotion brute de ce cri de victoire, où l'âme semble littéralement rayonner de bonheur. Un hymne pictural à l'allégresse et à l'éveil spirituel, entre ancrage terrestre et transcendance.",
-        file: "/artworks/celebration_de_la_vie.jpg",
+        file: "./artworks/celebration_de_la_vie.jpg",
         width: 5,
         height: 4
     },
     {
         title: "L'Esprit Tribal",
         description: "Une œuvre vibrante qui célèbre la beauté féminine africaine dans toute sa splendeur. Cette création expressive met en scène une figure féminine ornée de motifs traditionnels colorés, évoluant dans un écrin de verdure naturelle. Les couleurs vives et les patterns authentiques créent une harmonie dynamique entre culture ancestrale et nature luxuriante.",
-        file: "/artworks/l_esprit_tribal.jpg",
+        file: "./artworks/l_esprit_tribal.jpg",
         width: 5,
         height: 4
     },
     {
         title: "Balade en Ville",
         description: "Une ode nostalgique aux joies simples et à l'insouciance de l'enfance. Cette œuvre attendrissante capture un moment magique: deux enfants pédalent côte à côte sur une route dorée, baignée par les feux d'un coucher de soleil spectaculaire. Le ciel embrasé d'oranges, de jaunes et de bleus accompagne leur escapade innocente, tandis que deux oiseaux en liberté ponctuent cette symphonie de sérénité.Au loin, les silhouettes urbaines floues rappellent discrètement le monde des adultes, créant un contraste poétique entre l'instant présent et l'avenir qui les attend. Un hymne à la simplicité, à l'amitié et aux souvenirs dorés de l'enfance.",
-        file: "/artworks/balade_en_ville.jpg",
+        file: "./artworks/balade_en_ville.jpg",
         width: 5,
         height: 4
     }
