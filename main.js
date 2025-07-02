@@ -215,6 +215,7 @@ function createArtworks() {
 
     positions.forEach((pos, index) => {
         // Cadre
+		/*
         const frameGeometry = new THREE.BoxGeometry(artworkInfo[index].width + 0.2, artworkInfo[index].height + 0.2, 0.2);
         const frameMaterial = new THREE.MeshStandardMaterial({
             color: 0x3d2817,
@@ -225,7 +226,7 @@ function createArtworks() {
         frame.position.set(pos.x, pos.y, pos.z);
         frame.rotation.y = pos.ry;
         scene.add(frame);
-
+		*/
         // Toile
         const paintingGeometry = new THREE.PlaneGeometry(artworkInfo[index].width, artworkInfo[index].height);
         paintingGeometry.translate(0, 0, 0.11); // Positionner légèrement devant le cadre
