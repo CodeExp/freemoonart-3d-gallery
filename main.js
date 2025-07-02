@@ -25,7 +25,7 @@ scene.add(spotLight);
 // Créer la salle d'exposition
 function createRoom() {
     // Sol
-    const floorTexture = new THREE.TextureLoader().load('/api/placeholder/1024/1024');
+	const floorTexture = new THREE.TextureLoader().load('https://freemoonart-3d-gallery.netlify.app/nice-snow.png');
     floorTexture.wrapS = THREE.RepeatWrapping;
     floorTexture.wrapT = THREE.RepeatWrapping;
     floorTexture.repeat.set(8, 8);
